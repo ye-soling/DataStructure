@@ -33,8 +33,8 @@
 분수 ADT는 다음과 같은 추가 연산을 제공한다.
 
 - reduce(f): 하나의 분수를 입력받아 기약분수로 변환하여 반환한다.
-- parse(str): "A/B" 형태의 문자열을 입력받아 분수로 변환한다.
-- toString(f): 분수(Fraction)를 "A/B" 형태의 문자열로 출력한다. (A, B는 정수)
+- parseFraction(str): "A/B" 또는 정수/소수 형태의 문자열을 입력받아 Fraction 자료형으로 변환한다.
+- printFraction(f): Fraction 자료형을 "A/B" 또는 기약분수 형태로 출력한다. (분모가 1이면 정수로 출력)
 
 ----------
 
