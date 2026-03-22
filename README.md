@@ -66,26 +66,36 @@ main.c에서는 my_fraction.h를 include하여 사용한다.
 
 ### 최대 공약수
 
+```
 function gcd(a, b):
     while b != 0:
         temp = a % b
         a = b
         b = temp
     return a
+```
 
 두 정수 a와 b에 대해 나머지를 반복적으로 계산하며, b가 0이 되는 순간의 a 값이 최대 공약수가 된다.
 
 예시:
+
+```
 gcd(18, 24)
 24 % 18 = 6
 18 % 6 = 0 → GCD = 6
+```
 
 ### 최소 공배수 
 
+```
 function lcm(a, b):
     return (a * b) / gcd(a, b)
+```
 
 최소 공배수는 두 수의 곱을 최대 공약수로 나누어 구할 수 있다.
 
 예시:
+
+```
 lcm(18, 24) = (18 × 24) / 6 = 72
+```
