@@ -65,6 +65,7 @@ main.c에서는 my_fraction.h를 include하여 사용한다.
 - GCD는 유클리드 호제법을 이용하여 계산한다.
 
 ### 최대 공약수
+
 function gcd(a, b):
     while b != 0:
         temp = a % b
