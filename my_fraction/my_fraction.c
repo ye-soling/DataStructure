@@ -29,20 +29,26 @@ Fraction reduce(Fraction f) {
     return f;
 }
 
-// 문자열 → 분수 (분수 / 정수 / 소수 모두 지원)
+// 문자열 : 분수 (분수 / 정수 / 소수 모두 가능)
 Fraction parseFraction(const char* str) {
     Fraction f;
 
     // 분수 형태 
     if (strchr(str, '/')) {
         sscanf(str, "%d/%d", &f.numerator, &f.denominator);
+
+        // 분모가 0이면 오류
+        if (f.denominator == 0) {
+            printf("Error: 분모가 0입니다.\n");
+            exit(1);  // 프로그램 종료
+        }
     }
 
     // 소수 형태
     else if (strchr(str, '.')) {
         double value = atof(str);
 
-        int denom = 1000000; // 정밀도 (1e6)
+        int denom = 1000000; 
         int numer = (int)(value * denom);
 
         f.numerator = numer;
@@ -63,9 +69,9 @@ void printFraction(Fraction f) {
     f = reduce(f);
 
     if (f.denominator == 1) {
-        printf("%d\n", f.numerator);    //분모가 1이면 정수로 출력
+        printf("%d", f.numerator);    //분모가 1이면 정수로 출력
     } else {
-        printf("%d/%d\n", f.numerator, f.denominator);
+        printf("%d/%d", f.numerator, f.denominator);
     }
 }
 
@@ -86,7 +92,7 @@ Fraction sub(Fraction a, Fraction b) {
 }
 
 // 곱셈
-Fraction multiple(Fraction a, Fraction b) {
+Fraction multiply(Fraction a, Fraction b) {
     Fraction result;
     result.numerator = a.numerator * b.numerator;
     result.denominator = a.denominator * b.denominator;
@@ -95,6 +101,12 @@ Fraction multiple(Fraction a, Fraction b) {
 
 // 나눗셈
 Fraction divide(Fraction a, Fraction b) {
+    
+    if (b.numerator == 0) {
+        printf("Error: 0으로 나눌 수 없습니다.\n");
+        exit(1);  // 프로그램 종료
+    }
+    
     Fraction result;
     result.numerator = a.numerator * b.denominator;
     result.denominator = a.denominator * b.numerator;

@@ -19,13 +19,14 @@ int main() {
         result = sub(f1, f2);
     }
     else if (op == '*') {
-        result = multiple(f1, f2);
+        result = multiply(f1, f2);
     }
     else if (op == '/') {
         result = divide(f1, f2);
     }
 
     printFraction(result);
+    printf("\n");
 
     return 0;
 }

@@ -13,7 +13,7 @@ void printFraction(Fraction f);
 // 연산
 Fraction add(Fraction a, Fraction b);
 Fraction sub(Fraction a, Fraction b);
-Fraction multiple(Fraction a, Fraction b);
+Fraction multiply(Fraction a, Fraction b);
 Fraction divide(Fraction a, Fraction b);
 
 // 기약분수
