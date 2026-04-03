@@ -32,8 +32,8 @@ int fib_recursive(int n) {
 int main() {
     for (int n = 5; n <= 40; n++) {
 
-        int fn = fib(n);
-        int fn1 = fib(n - 1);
+        int fn = fib_recursive(n);
+        int fn1 = fib_recursive(n - 1);
 
         // GCD 시간 측정
         clock_t start1 = clock();
