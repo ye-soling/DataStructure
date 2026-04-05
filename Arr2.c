@@ -7,6 +7,11 @@ int main() {
     printf("홀수 n을 입력하세요: ");
     scanf("%d", &n);
 
+    if (n % 2 == 0) {
+    printf("홀수만 입력하세요.\n");
+    return 1;
+    }
+
     // 동적 2차원 배열 생성 (1차원으로 할당)
     int *arr = (int *)malloc(n * n * sizeof(int));
 
