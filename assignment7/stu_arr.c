@@ -8,7 +8,7 @@
 
 typedef struct {
     char name[NAME_LEN]; // 이름
-    int id; // 학번
+    int stu_id; // 학번
     int score; // 점수
 } Student;
 
@@ -45,41 +45,42 @@ int main() {
 
     fclose(fp);
 
-    // 이름 / 학번 / 성적 랜덤 
+    // 이름 / 학번 / 성적 
     srand(time(NULL));
 
     for (int i = 0; i < N; i++) {
         int rand_idx = rand() % name_count;
 
         strcpy(arr[i].name, name_list[rand_idx]);
-        arr[i].id = i + 1;
+        arr[i].stu_id = i + 1;
         arr[i].score = rand() % 100 + 1;
     }
 
-    // 최고점 / 최저점 / 평균 계산
-    int max_idx = 0;
+    // 최저점 / 최고점 / 평균 계산
     int min_idx = 0;
+    int max_idx = 0;
     int sum = 0;
 
     for (int i = 0; i < N; i++) {
-        if (arr[i].score > arr[max_idx].score)
-            max_idx = i;
-
+        
         if (arr[i].score < arr[min_idx].score)
             min_idx = i;
+
+        if (arr[i].score > arr[max_idx].score)
+            max_idx = i;
 
         sum += arr[i].score;
     }
 
     double avg = (double)sum / N;
 
-    printf("\n최고점 학생 정보\n");
+    printf("\n최저점 학생의 정보\n");
     printf("이름: %s, 학번: %d, 성적: %d점\n",
-        arr[max_idx].name, arr[max_idx].id, arr[max_idx].score);
+        arr[min_idx].name, arr[min_idx].stu_id, arr[min_idx].score);
 
-    printf("\n최저점 학생 정보\n");
+    printf("\n최고점 학생의 정보\n");
     printf("이름: %s, 학번: %d, 성적: %d점\n",
-        arr[min_idx].name, arr[min_idx].id, arr[min_idx].score);
+        arr[max_idx].name, arr[max_idx].stu_id, arr[max_idx].score);    
 
     printf("\n평균 점수: %.2f점\n", avg);
 
