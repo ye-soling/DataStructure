@@ -24,7 +24,7 @@ int main() {
     printf("정수(N)을 입력하세요: ");
     scanf("%d", &N);
 
-    printf("n | fib| iter_time | rec_time\n");
+    printf("N | fib_순환| fib_재귀| 순환_수행| 재귀_수행\n");
 
     for (int i = 1; i <= N; i++) {
 
@@ -40,8 +40,8 @@ int main() {
         clock_t end_rec = clock();
         double time_rec = (double)(end_rec - start_rec) / CLOCKS_PER_SEC;
 
-        printf("%d | %lld | %.6f | %.6f\n", i, fib_iter, time_iter, time_rec);
-    }
+        printf("%d |    %lld    |    %lld    | %.6f | %.6f\n", i, fib_iter, fib_rec, time_iter, time_rec);
+    } 
 
     return 0;
 }
