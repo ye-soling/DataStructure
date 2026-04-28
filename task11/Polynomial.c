@@ -14,8 +14,13 @@ polynomial* addItemPolynomial(polynomial* po, elementType item) {
 		}
 
 		if (po->data[i].expo == item.expo) {
-			po->data[i].coef += item.coef;
-			return po;
+    		po->data[i].coef += item.coef;
+
+    		if (po->data[i].coef == 0) {
+        		deleteArrayList(po, i);
+   			}
+
+    		return po;
 		}
 	}
 

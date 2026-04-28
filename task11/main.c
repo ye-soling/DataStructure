@@ -7,18 +7,30 @@
 // 다항식 항 추가 (같은 지수가 이미 존재하면 계수를 합산 / 없으면 리스트 끝에 새 항 삽입)
 // coef, expo 형태의 항을 리스트에 저장
 void addTerm(arrayList* list, int coef, int expo) {
+    elementArrayList item = {coef, expo};
+
     for (int i = 0; i < sizeArrayList(list); i++) {
         if (list->data[i].expo == expo) {
             list->data[i].coef += coef;
+
+            if (list->data[i].coef == 0) {
+                deleteArrayList(list, i);
+            }
             return;
         }
     }
 
-    elementArrayList item = {coef, expo};
+    for (int i = 0; i < sizeArrayList(list); i++) {
+        if (list->data[i].expo < expo) {
+            insertArrayList(list, i, item);
+            return;
+        }
+    }
+
     insertArrayList(list, sizeArrayList(list), item);
 }
 
-// 문자열 파싱 (ex: 3X^2+2X^1+1X^0 -> 3x²+2x+1) : 더하기 연산자 기준으로 분리 
+// 문자열 파싱 (예시: 3X^2+2X^1+1X^0 -> 3x²+2x+1) : 더하기 연산자 기준으로 분리 
 void parsePolynomial(char* str, arrayList* list) {
     char* token = strtok(str, "+");
 
@@ -57,10 +69,10 @@ int main() {
 
     char poly1[100], poly2[100];
 
-    printf("1번째 다항식: ");
+    printf("첫번째 다항식: ");
     scanf("%s", poly1);
 
-    printf("2번째 다항식: ");
+    printf("두번째 다항식: ");
     scanf("%s", poly2);
 
     parsePolynomial(poly1, A);
