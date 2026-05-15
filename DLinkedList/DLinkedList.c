@@ -113,21 +113,27 @@ int deleteAtDLinkedList(DLinkedList* dl, int at) {
 
 void printDLinkedList(DLinkedList* dl) {
 
+    PointType* current = dl->head.next;
+
     printf("\n전체 리스트 목록\n");
 
     if (dl->size == 0) {
+
         printf("리스트가 비어있습니다.\n");
+
         return;
     }
 
-    PointType* current = dl->head.next;
+    while (current != &(dl->head)) {
 
-    for (int i = 0; i < dl->size; i++) {
         printf("%d ", current->data);
+
         current = current->next;
     }
+
+    printf("\n");
 }
 
-int sizeDLinkedList(DLinkedList* dl) {
-    return dl->size;
+int sizeDLinkedList(DLinkedList* li) {
+    return li->size;
 }
