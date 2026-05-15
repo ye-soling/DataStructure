@@ -7,7 +7,7 @@ int main() {
     int menu;   // 메뉴 저장
     int data;
     int index;  // 위치 저장 
-    int deletedValue;   // 삭제된 값 저장 
+    int deletedValue;   // 삭제된 저장 
 
     while (1) {
 

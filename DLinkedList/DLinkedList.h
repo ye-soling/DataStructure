@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct pointType {
+typedef struct pointType { //
     int data;
     struct pointType* prev;
     struct pointType* next;

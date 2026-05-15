@@ -45,15 +45,18 @@ int insertLastDLinkedList(DLinkedList* dl, int data) {
     return 1;
 }
 
+// 특정 위치에 추가
 int insertAtDLinkedList(DLinkedList* dl, int at, int data) {
     if (at < 0 || at > dl->size) {
         return 0;
     }
 
+    // 맨 앞에 추가
     if (at == 0) {
         return insertFirstDLinkedList(dl, data);
     }
 
+    // 맨 뒤에 추가
     if (at == dl->size) {
         return insertLastDLinkedList(dl, data);
     }
@@ -62,6 +65,7 @@ int insertAtDLinkedList(DLinkedList* dl, int at, int data) {
     PointType* current = dl->head.next;
     nPtr->data = data;
 
+    // 추가할 위치까지 이동
     for (int i = 0; i < at; i++) {
         current = current->next;
     }
@@ -90,6 +94,7 @@ int deleteAtDLinkedList(DLinkedList* dl, int at) {
 
     PointType* current = dl->head.next;
 
+    // 삭제할 위치까지 이동
     for (int i = 0; i < at; i++) {
         current = current->next;
     }
