@@ -26,10 +26,6 @@ int isEmptyLinkedList(LinkedList* li) {
     return (li->size == 0);
 }
 
-int sizeLinkedList(LinkedList* li) {
-    return li->size;
-}
-
 LinkedList* insertFirstLinkedList(LinkedList* li, int data) {
     PointType* ptr = (PointType*)malloc(sizeof(PointType));
     ptr->data = data;
@@ -156,4 +152,8 @@ void printLinkedList(LinkedList* li) {
     }
 
     printf("\n");
+}
+
+int sizeLinkedList(LinkedList* li) {
+    return li->size;
 }

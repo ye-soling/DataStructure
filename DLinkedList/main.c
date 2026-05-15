@@ -1,17 +1,17 @@
-#include "LinkedList.h"
+#include "DLinkedList.h"
 
 int main() {
 
-    LinkedList* list = createLinkedList();
+    DLinkedList* list = createDLinkedList();
 
     int menu;   // 메뉴 저장
     int data;
-    int index;  // 위치 저장
-    int deletedValue;   // 삭제된 값 저장  
+    int index;  // 위치 저장 
+    int deletedValue;   // 삭제된 값 저장 
 
     while (1) {
 
-        printf("\n연결 리스트 메뉴\n");
+        printf("\n이중 원형 연결 리스트 메뉴\n");
         printf("1. 맨 앞에 추가\n");
         printf("2. 맨 뒤에 추가\n");
         printf("3. 특정 위치에 추가\n");
@@ -27,40 +27,44 @@ int main() {
 
         // 맨 앞에 추가
         case 1:
+
             printf("맨 앞에 추가할 정수: ");
             scanf("%d", &data);
 
-            insertFirstLinkedList(list, data);
+            insertFirstDLinkedList(list, data);
 
             break;
 
-        // 맨 뒤에 추가 
+        // 맨 뒤에 추가
         case 2:
+
             printf("맨 뒤에 추가할 정수: ");
             scanf("%d", &data);
 
-            insertLastLinkedList(list, data);
+            insertLastDLinkedList(list, data);
 
             break;
-        
+
         // 특정 위치에 추가
         case 3:
+
             printf("추가할 위치: ");
             scanf("%d", &index);
 
             printf("추가할 정수: ");
             scanf("%d", &data);
 
-            insertAtLinkedList(list, index, data);
+            if (insertAtDLinkedList(list, index, data))
 
             break;
 
         // 특정 위치 삭제
         case 4:
+
             printf("삭제할 위치: ");
             scanf("%d", &index);
 
-            deletedValue = deleteAtLinkedList(list, index);
+            deletedValue = deleteAtDLinkedList(list, index);
 
             if (deletedValue != -1) {
                 printf("삭제된 값: %d\n", deletedValue);
@@ -70,26 +74,29 @@ int main() {
 
         // 전체 리스트 출력
         case 5:
-            printLinkedList(list);
+
+            printDLinkedList(list);
 
             break;
 
         // 리스트 크기 확인
         case 6:
-            printf("리스트 크기: %d\n",
-                sizeLinkedList(list));
+
+            printf("현재 리스트 크기: %d\n", sizeDLinkedList(list));
 
             break;
 
         // 프로그램 종료
         case 0:
-            destroyLinkedList(list);
+
+            destroyDLinkedList(list);
 
             printf("프로그램을 종료합니다.\n");
 
             return 0;
 
         default:
+
             printf("잘못된 메뉴입니다.\n");
         }
     }
