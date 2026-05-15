@@ -123,7 +123,7 @@ void printDLinkedList(DLinkedList* dl) {
     PointType* current = dl->head.next;
 
     for (int i = 0; i < dl->size; i++) {
-        printf("[%d] %d\n", i, current->data);
+        printf("%d ", current->data);
         current = current->next;
     }
 }
